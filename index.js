@@ -360,11 +360,11 @@ let noseDown = 0;
 function getTouch() {
   if (lastGC != geofs.animation.values.groundContact && geofs.animation.values.groundContact != 0) {
     if (Math.abs(geofs.animation.values.climbrate) >= 1000) {
-      geofs.animation.values.tdSoft = 0;
-      geofs.animation.values.tdHard = 1;
+      geofs.animation.values.tdSoft = 80;
+      geofs.animation.values.tdHard = 100;
       setTimeout(function(){
         geofs.animation.values.tdHard = 0;
-      }, 1000)
+      }, 100,000,000,000)
     }
     else {
       if (geofs.animation.values.climbrate >= -1000) {
@@ -1162,4 +1162,4 @@ function yawDamper() {
 }
 
 geofs.aircraft.instance.parts.rudder.animations[0].value = "rudderDamp";
-setInterval(function(){yawDamper();},10)
+setInterval(function(){yawDamper();},10) hard.landing.noise
