@@ -360,8 +360,8 @@ let noseDown = 0;
 function getTouch() {
   if (lastGC != geofs.animation.values.groundContact && geofs.animation.values.groundContact != 0) {
     if (Math.abs(geofs.animation.values.climbrate) >= 1000) {
-      geofs.animation.values.tdSoft = 0;
-      geofs.animation.values.tdHard = 1;
+      geofs.animation.values.tdSoft = 85;
+      geofs.animation.values.tdHard = 100;
       setTimeout(function(){
         geofs.animation.values.tdHard = 0;
       }, 1000)
@@ -373,8 +373,8 @@ function getTouch() {
           geofs.animation.values.paxClap = 0;
         }, 5000)
       }
-      geofs.animation.values.tdSoft = 1;
-      geofs.animation.values.tdHard = 0;
+      geofs.animation.values.tdSoft = 78;
+      geofs.animation.values.tdHard = 100;
       setTimeout(function(){
         geofs.animation.values.tdSoft = 0;
       }, 1000)
@@ -582,10 +582,10 @@ geofs.aircraft.instance.definition.sounds[11].effects = {"start": {"value": "isP
 geofs.aircraft.instance.definition.sounds[12].id = "bankangle"
   geofs.aircraft.instance.definition.sounds[12].file = ""
 geofs.aircraft.instance.definition.sounds[12].effects = {"start": {"value": "isBankWarn"}}
-
+geofs.aircraft.instance.definition.sounds[12].effects = {"start": {"value": "stalling}"}
   geofs.aircraft.instance.definition.sounds[13] = {};
-geofs.aircraft.instance.definition.sounds[13].id = "1000"
-  geofs.aircraft.instance.definition.sounds[13].file = "https://138772948-227015667470610340.preview.editmysite.com/uploads/1/3/8/7/138772948/1000gpws_merged.mp3"
+geofs.aircraft.instance.definition.sounds[13].id = "2500"
+  geofs.aircraft.instance.definition.sounds[13].file = "https://13872948-227015667470610340.preview.editmysite.com/uploads/1/3/8/7/138772948/1000gpws_merged.mp3"
 geofs.aircraft.instance.definition.sounds[13].effects = {"start": {"value": "gpws1000"}}
 
   geofs.aircraft.instance.definition.sounds[14] = {};
