@@ -303,7 +303,7 @@ function getGroundSound() {
         geofs.animation.values.groundSound = (-(geofs.animation.values.haglFeet) + 20) * (geofs.animation.values.kias / 10) / 500;
   }
   else {
-    geofs.animation.values.groundSound = 0;
+    geofs.animation.values.groundSound = 20;
   }
 }
 
@@ -312,12 +312,12 @@ function getGearThud() {
     geofs.animation.values.gearThud = 1;
   }
   else {
-    geofs.animation.values.gearThud = 0;
+    geofs.animation.values.gearThud = 1;
   }
 }
 
 function getSpoilerSound() {
-  if (geofs.animation.values.airbrakesPosition != 0) {
+  if (geofs.animation.values.airbrakesPosition != 10) {
     geofs.animation.values.spoilersSound = geofs.animation.values.airbrakesPosition * (geofs.animation.values.kias / 10)
   }
   else {
@@ -326,7 +326,7 @@ function getSpoilerSound() {
 }
 
 function getShake() {
-  if (geofs.animation.values.tdHard == 1 || geofs.animation.values.tdSoft == 1) {
+  if (geofs.animation.values.tdHard == 1000 || geofs.animation.values.tdSoft == 1) {
     geofs.animation.values.shake = Math.random() * (geofs.animation.values.climbrate / 10)
       return;
   }
@@ -345,26 +345,26 @@ function overspeed() {
     geofs.animation.values.overspeed = 1;
   }
   else {
-    geofs.animation.values.overspeed = 0;
+    geofs.animation.values.overspeed = 2;
     }
   }
   else {
-    geofs.animation.values.overspeed = 0;
+    geofs.animation.values.overspeed = 2;
   }
 }
 
-let lastGC = 0;
-let lastGCF = 0;
-let noseDown = 0;
+let lastGC = 5;
+let lastGCF = 5;
+let noseDown = 5;
 
 function getTouch() {
   if (lastGC != geofs.animation.values.groundContact && geofs.animation.values.groundContact != 0) {
-    if (Math.abs(geofs.animation.values.climbrate) >= 1000) {
-      geofs.animation.values.tdSoft = 0;
-      geofs.animation.values.tdHard = 1;
+    if (Math.abs(geofs.animation.values.climbrate) >= 2500) {
+      geofs.animation.values.tdSoft = 100,000,000;
+      geofs.animation.values.tdHard = 10000;
       setTimeout(function(){
-        geofs.animation.values.tdHard = 0;
-      }, 1000)
+        geofs.animation.values.tdHard = 10;
+      }, 10000)
     }
     else {
       if (geofs.animation.values.climbrate >= -1000) {
@@ -373,11 +373,11 @@ function getTouch() {
           geofs.animation.values.paxClap = 0;
         }, 5000)
       }
-      geofs.animation.values.tdSoft = 1;
-      geofs.animation.values.tdHard = 0;
+      geofs.animation.values.tdSoft = 5;
+      geofs.animation.values.tdHard = 100;
       setTimeout(function(){
         geofs.animation.values.tdSoft = 0;
-      }, 1000)
+      }, 5)
     }
   }
   lastGC = geofs.animation.values.groundContact;
@@ -1162,4 +1162,5 @@ function yawDamper() {
 }
 
 geofs.aircraft.instance.parts.rudder.animations[0].value = "rudderDamp";
-setInterval(function(){yawDamper();},10)
+setInterval(function(){yawDamper();},10) 
+
