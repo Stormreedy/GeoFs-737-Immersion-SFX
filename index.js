@@ -1016,6 +1016,11 @@ function doRadioAltCall(){
   } 
 }
   else {
+   
+	  
+    geofs.animation.values.gpws2500 = 0;	  
+    geofs.animatiion.values.gpsw2000 = 0;
+    geofs.animation.values.gpsw1778 = 0;  
     geofs.animation.values.gpws1000 = 0;
     geofs.animation.values.gpws500 = 0;
     geofs.animation.values.gpws400 = 0;
@@ -1027,7 +1032,7 @@ function doRadioAltCall(){
     geofs.animation.values.gpws30 = 0;
     geofs.animation.values.gpws20 = 0;
     geofs.animation.values.gpws10 = 0;
-  }
+    
 }
 
 
